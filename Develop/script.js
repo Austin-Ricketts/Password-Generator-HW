@@ -24,6 +24,7 @@ function generatePassword() {
  var response4 = confirm("Would you like to use Special Characters? Press 'Confirm' for yes or 'Cancel' for no.");
  console.log(response4);
 
+ 
     if (response1) {
       userChoice.push.apply(userChoice, upperCase);
       console.info(userChoice); 
@@ -43,9 +44,9 @@ function generatePassword() {
       userChoice.push.apply(userChoice, specialChar);
       console.info(userChoice); 
     }  
-
-  for (var i = 0; i < userChoice; i++) {
-    return (Math.random(userChoice) * userChoice.length + 1).toString(36);
+    for (var i = 0; i < passLength; i++) {
+         console.info(userChoice);
+   return (Math.random(userChoice) * passLength.length + 1).toString(36);
 }
 }
 
