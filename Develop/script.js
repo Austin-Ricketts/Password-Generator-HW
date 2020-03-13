@@ -5,21 +5,35 @@ var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "{", "}", "^", "_", "`", "~", "|", "\\", "\""];
 var entireSelection = [upperCase, lowerCase, numbers, specialChar];
-var userChoice = []
+var randUpper = (Math.random(entireSelection[0]) * upperCase.length + 1).toString(36).toUpperCase();
+var randLower = (Math.random(entireSelection[0]) * lowerCase.length + 1).toString(36).toLowerCase();
+//var totalResponse = Math.random(upperCase, lowerCase, numbers, specialChar);
 
 function generatePassword() {
  var passLength = prompt("How many characters would you like in your Password? You may choose any cardinal number from 8 to 128, but no less and no more.");
+      console.log(passLength);
+      parseInt(passLength);
+      console.log(parseInt(passLength));
  var response1 = confirm("Would you like to use Upper Case letters? Press 'Confirm' for yes or 'Cancel' for no.");
- if (response1) {
-    userChoice.fill(upperCase[upperCase[0], upperCase[1]]);
-    for (var i = 0; i < userChoice.length; i++) {
-      return (Math.random(entireSelection[0]) * userChoice.length + 1).toString(36).toUpperCase(); 
+ console.log(response1);
+ var response2 = confirm("Would you like to use lower case letters? Press 'Confirm' for yes or 'Cancel' for no.");
+ console.log(response2);
+ var response3 = confirm("Would you like to use numbers? Press 'Confirm' for yes or 'Cancel' for no.");
+ console.log(response3);
+ var response4 = confirm("Would you like to use Special Characters? Press 'Confirm' for yes or 'Cancel' for no.");
+ console.log(response4);
+
+ if (response1 && response2 && response3 && response4) {
+    for (var i = 0; i < passLength.length; i++) {
+      return (Math.random(upperCase, lowerCase, numbers, specialChar) * passLength.length + 1).toString(36); 
        }
  }   
- //var response2 = confirm("Would you like to use lower case letters? Press 'Confirm' for yes or 'Cancel' for no.");
- //confirm("Would you like to use numbers? Press 'Confirm' for yes or 'Cancel' for no.");
- //confirm("Would you like to use Special Characters? Press 'Confirm' for yes or 'Cancel' for no.");
+ 
 }
+
+
+ 
+
 
 
 // Write password to the #password input
