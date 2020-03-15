@@ -1,5 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+//created variable arrays
 var min = 8;
 var max = 128;
 let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -7,7 +8,6 @@ let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 let specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "{", "}", "^", "_", "`", "~", "|", "\\", "\""];
 let userChoice = [];
-//var entireSelection = [upperCase, lowerCase, numbers, specialChar];
 
 function generatePassword() {
   var passLength = prompt("How many characters would you like in your Password? You may choose any cardinal number from 8 to 128, but no less and no more.");
@@ -15,10 +15,20 @@ function generatePassword() {
   parseInt(passLength);
   console.log(parseInt(passLength));
   var lengthChoice = parseInt(passLength);
-  if (lengthChoice < min) {
+
+  
+  //Couldn't figure out this dowhile loop.
+  /*do {
+    lengthChoice
+  } while (lengthChoice >= 8 || lengthChoice <= 128);
+  if (lengthChoice >= 8 || lengthChoice <= 128) {
+    return true;
+  }*/
+  
+  if (passLength < min) {
     alert("Number choice too small: Refresh page to try again!");
   }
-  if (lengthChoice > max) {
+  if (passLength > max) {
     alert("Number choice too large: Refresh page to try again!");
   }
 
@@ -69,12 +79,11 @@ function generatePassword() {
           }
 
   //create a for loop that starts at passLength
-  for (var i = 0; i < userChoice; i++) {
-    const element = userChoice[i];
-    console.log(userChoice);
-    return Math.floor(Math.random(userChoice) * lengthChoice) + userChoice;
+  for (var i = 0; i < passLength; i++) {
+    console.log(passLength);
+    userChoice += (Math.floor(Math.random(passLength) * passLength.length));
   }
-
+    return userChoice;
 }
 // Write password to the #password input
 function writePassword() {

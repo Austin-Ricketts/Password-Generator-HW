@@ -15,3 +15,4 @@ next c) it captures the user's information by having those prompts and confirms 
 after this d) the code moves through a series of "if" statements applying the user's choices;
 finally e) a "for loop" is used to generate the random criteria.
 
+I made no changes to the index.html file or the style.css file.
