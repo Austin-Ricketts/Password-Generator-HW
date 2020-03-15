@@ -1,5 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var min = 8;
+var max = 128;
 let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -13,8 +15,14 @@ function generatePassword() {
   parseInt(passLength);
   console.log(parseInt(passLength));
   var lengthChoice = parseInt(passLength);
+  if (lengthChoice < min) {
+    alert("Number choice too small: Refresh page to try again!");
+  }
+  if (lengthChoice > max) {
+    alert("Number choice too large: Refresh page to try again!");
+  }
 
-
+//Turned confirms into variables in order to bring them into if statements.
   var response1 = confirm("Would you like to use Upper Case letters? Press 'Confirm' for yes or 'Cancel' for no.");
   console.log(response1);
   var response2 = confirm("Would you like to use lower case letters? Press 'Confirm' for yes or 'Cancel' for no.");
@@ -59,70 +67,15 @@ function generatePassword() {
               console.log(userChoice);
             
           }
-  } 
 
-  /*if (response2) {
-    userChoice.push.apply(userChoice, lowerCase);
-    console.info(userChoice);
+  //create a for loop that starts at passLength
+  for (var i = 0; i < userChoice; i++) {
+    const element = userChoice[i];
+    console.log(userChoice);
+    return Math.floor(Math.random(userChoice) * lengthChoice) + userChoice;
   }
 
-  if (response3) {
-    userChoice.push.apply(userChoice, numbers);
-    console.info(userChoice);
-  }
-
-  if (response4) {
-    userChoice.push.apply(userChoice, specialChar);
-    console.info(userChoice);
-
-  }
-  // create a for loop that starts at passLength
-  for (var i = 0; i < passLength - 4; i++) {
-    console.info(userChoice);
-    return (Math.random(userChoice) * lengthChoice + 1).toString(36);
-  }*/
-
-
-
-  /*if (response1) {
-    // grab random character from upperCase
-    // push that random character into userchoice
-    userChoice.push.apply(userChoice, upperCase);
-    console.info(userChoice);
-  }
-
-  if (response2) {
-    userChoice.push.apply(userChoice, lowerCase);
-    console.info(userChoice);
-  }
-
-  if (response3) {
-    userChoice.push.apply(userChoice, numbers);
-    console.info(userChoice);
-  }
-
-  if (response4) {
-    userChoice.push.apply(userChoice, specialChar);
-    console.info(userChoice);
-
-  }
-  // create a for loop that starts at passLength
-  for (var i = 0; i < passLength - 4; i++) {
-    console.info(userChoice);
-    return (Math.random(userChoice) * lengthChoice + 1).toString(36);
-  }*/
-
-//}
-
-
-
-
-
-
-
-
-
-
+}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
